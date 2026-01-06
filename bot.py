@@ -5,8 +5,8 @@ from collections import deque
 
 # =============== YAPILANDIRMA ===============
 import os
-TELEGRAM_BOT_TOKEN = os.environ.get('TELEGRAM_BOT_TOKEN', '8330018482:AAE43ERpZumXw3kpz4M8Q10PkEx_QhFwyMw')
-TELEGRAM_CHAT_ID = os.environ.get('TELEGRAM_CHAT_ID', '698871649')
+TELEGRAM_BOT_TOKEN = os.environ.get('TELEGRAM_BOT_TOKEN')
+TELEGRAM_CHAT_ID = os.environ.get('TELEGRAM_CHAT_ID')
 TOKEN_ADDRESS = "9BB6NFEcjBCtnNLFko2FqVQBq8HHM13kCyYcdQbgpump"  # FARTCOIN Solana
 CHECK_INTERVAL = 30  # Kontrol aralığı (saniye) - daha sık kontrol
 SPIKE_THRESHOLD_CRITICAL = 500  # %500 artış = KRİTİK ALARM
