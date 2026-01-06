@@ -8,14 +8,14 @@ import os
 TELEGRAM_BOT_TOKEN = os.environ.get('TELEGRAM_BOT_TOKEN')
 TELEGRAM_CHAT_ID = os.environ.get('TELEGRAM_CHAT_ID')
 TOKEN_ADDRESS = "9BB6NFEcjBCtnNLFko2FqVQBq8HHM13kCyYcdQbgpump"  # FARTCOIN Solana
-CHECK_INTERVAL = 30  # Kontrol aralığı (saniye) - daha sık kontrol
-SPIKE_THRESHOLD_CRITICAL = 500  # %500 artış = KRİTİK ALARM
-SPIKE_THRESHOLD_WARNING = 200  # %200 artış = UYARI
+CHECK_INTERVAL = 10  # Kontrol aralığı (saniye) - daha sık kontrol
+SPIKE_THRESHOLD_CRITICAL = 3  # %500 artış = KRİTİK ALARM
+SPIKE_THRESHOLD_WARNING = 1  # %200 artış = UYARI
 COOLDOWN_MINUTES = 15  # Tekrar alarm için bekleme süresi (dakika)
 
 # =============== GLOBAL DEĞİŞKENLER ===============
 last_alert_time = None
-volume_snapshots = deque(maxlen=120)  # Son 1 saat veri (30sn*120 = 1 saat)
+volume_snapshots = deque(maxlen=3)  # Son 1 saat veri (30sn*120 = 1 saat)
 
 def get_dexscreener_data(token_address):
     """DexScreener'dan token verilerini çeker"""
