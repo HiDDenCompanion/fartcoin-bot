@@ -15,7 +15,7 @@ COOLDOWN_MINUTES = 15  # Tekrar alarm için bekleme süresi (dakika)
 
 # =============== GLOBAL DEĞİŞKENLER ===============
 last_alert_time = None
-volume_snapshots = deque(maxlen=3)  # Son 1 saat veri (30sn*120 = 1 saat)
+volume_snapshots = deque(maxlen=120)  # Son 1 saat veri (30sn*120 = 1 saat)
 
 def get_dexscreener_data(token_address):
     """DexScreener'dan token verilerini çeker"""
@@ -64,7 +64,7 @@ def calculate_spike(current_volume_5m):
     })
     
     # Yeterli veri yoksa bekle (en az 10 dakika veri = 20 snapshot)
-    if len(volume_snapshots) < 20:
+    if len(volume_snapshots) < 3:
         return None, None, current_volume_5m
     
     # Son 1 saatin 5 dakikalık ortalama hacmini hesapla
