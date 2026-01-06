@@ -4,8 +4,9 @@ from datetime import datetime, timedelta
 from collections import deque
 
 # =============== YAPILANDIRMA ===============
-TELEGRAM_BOT_TOKEN = "8500030482:AAE43ERpZumXw3kpz4M8QJ0FkEx_ObFwyNw"
-TELEGRAM_CHAT_ID = "6508716414"
+import os
+TELEGRAM_BOT_TOKEN = os.environ.get('TELEGRAM_BOT_TOKEN', '8330018482:AAE43ERpZumXw3kpz4M8Q10PkEx_QhFwyMw')
+TELEGRAM_CHAT_ID = os.environ.get('TELEGRAM_CHAT_ID', '698871649')
 TOKEN_ADDRESS = "9BB6NFEcjBCtnNLFko2FqVQBq8HHM13kCyYcdQbgpump"  # FARTCOIN Solana
 CHECK_INTERVAL = 30  # Kontrol aralığı (saniye) - daha sık kontrol
 SPIKE_THRESHOLD_CRITICAL = 500  # %500 artış = KRİTİK ALARM
