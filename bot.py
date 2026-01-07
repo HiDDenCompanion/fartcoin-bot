@@ -8,9 +8,9 @@ import os
 TELEGRAM_BOT_TOKEN = os.environ.get('TELEGRAM_BOT_TOKEN')
 TELEGRAM_CHAT_ID = os.environ.get('TELEGRAM_CHAT_ID')
 TOKEN_ADDRESS = "9BB6NFEcjBCtnNLFko2FqVQBq8HHM13kCyYcdQbgpump"  # FARTCOIN Solana
-CHECK_INTERVAL = 10  # Kontrol aralığı (saniye) - daha sık kontrol
-SPIKE_THRESHOLD_CRITICAL = 3  # %500 artış = KRİTİK ALARM
-SPIKE_THRESHOLD_WARNING = 1  # %200 artış = UYARI
+CHECK_INTERVAL = 30  # Kontrol aralığı (saniye) - daha sık kontrol
+SPIKE_THRESHOLD_CRITICAL = 500  # %500 artış = KRİTİK ALARM
+SPIKE_THRESHOLD_WARNING = 200  # %200 artış = UYARI
 COOLDOWN_MINUTES = 15  # Tekrar alarm için bekleme süresi (dakika)
 
 # =============== GLOBAL DEĞİŞKENLER ===============
@@ -64,7 +64,7 @@ def calculate_spike(current_volume_5m):
     })
     
     # Yeterli veri yoksa bekle (en az 10 dakika veri = 20 snapshot)
-    if len(volume_snapshots) < 3:
+    if len(volume_snapshots) < 20:
         return None, None, current_volume_5m
     
     # Son 1 saatin 5 dakikalık ortalama hacmini hesapla
